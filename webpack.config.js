@@ -1,5 +1,5 @@
 const path = require('path');
-const fs = require("fs");
+const fs = require('fs');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -54,7 +54,7 @@ const cssLoaders = (extraLoader) => {
       options: {
         hmr: isDev,
         reloadAll: true,
-        publicPath: '/dist',// - for images right path
+        publicPath: '/',// - for images right path ('/dist' - for filesystem)
 
       }
     }, 
@@ -82,7 +82,7 @@ const cssLoaders = (extraLoader) => {
 const htmlPluginInstance = () => { //Automatic creation any html pages
   const pages = fs
   .readdirSync('./src/pug') // pages_dir
-  .filter(fileName => fileName.endsWith(".pug"));
+  .filter(fileName => fileName.endsWith('.pug'));
 
   return pages.map(
     page =>
@@ -118,7 +118,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'src'),
     watchContentBase: true,
-    port: 3000,
+    port: 8081,
     hot: isDev,
     overlay: true,
   },
@@ -129,8 +129,8 @@ module.exports = {
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, 'src/img/favicon/favicon.ico'),
-        to: path.resolve(__dirname, 'dist/img/favicon'),
+        from: path.resolve(__dirname, 'src/img/favicon/'),
+        to: path.resolve(__dirname, 'dist/img/favicon/'),
       },
     ]),
     new MiniCssExtractPlugin({
@@ -173,15 +173,13 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-            outputPath: 'img',
-            name: '[name].[ext]' // [contenthash].[ext]
+            // outputPath: 'img', // [path] contains 'img'
+            name: '[path][name].[ext]' // [contenthash].[ext]
             },
           },
           {
             loader: 'image-webpack-loader',
             options: {
-              // bypassOnDebug: true, // webpack@1.x
-              // disable: true, // webpack@2.x and newer
               mozjpeg: {
                 progressive: true,
                 quality: 65
