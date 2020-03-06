@@ -1,0 +1,110 @@
+@import "_mixins/placeholder"
+@import "_mixins/rem"
+	
+*
+	box-sizing: border-box
+	&:before, &:after
+		box-sizing: border-box
+
++placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+html, body
+	height: 100%
+	line-height: 1.1
+  font-size: $default-font-size
+@media screen and (max-width: 1280px)
+	html, body
+		font-size: 16px
+@media screen and (max-width: 768px)
+	html, body
+		font-size: 15px
+@media screen and (max-width: 480px)
+	html, body
+		font-size: 14px
+
+body
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+	opacity: 1
+	font-family: $default-font
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: $accent
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	width: 100% //for lazyload strict 100%, not max-width: 100%
+	height: auto
+
+.text-center
+	text-align: center
+
+b, strong
+	font-family: "OpenSansdBold", serif
+
+.accent
+	text-decoration: underline
+	color: $accent
+	&:focus, &:hover
+		text-decoration: none
+		color: $accent
+
+	
+
+
+h1, h2, h3,
+.h1, .h2, .h3
+	font-family: $default-font
+	line-height: 1.2
+	font-weight: normal
+
+h1
+	font-size: rem(42)
+	color: $black
+	display: inline-block
+	padding-bottom: rem(47)
+	padding-top: 47px
+	border: 1px solid black
+	margin: 0
+
+p
+	margin-bottom: 10px
+
+// h2
+// 	font-size: 30px
+// 	text-transform: uppercase
+// 	color: $blue-dark
+
+// h3
+// 	font-size: 24px
+// 	color: $blue-light
+// 	text-transform: uppercase
+// 	text-align: center .offset-md-6
+
+.hidden
+	display: none
+
+.lazy
+	background-image: url(data:image/gif;base64,R0lGODlhCgAIAIABAN3d3f///yH5BAEAAAEALAAAAAAKAAgAAAINjAOnyJv2oJOrVXrzKQA7)
+
+// +media-breakpoint-down(lg)
+// 	h1
+// 		font-size: 35px
+// 		margin-bottom: 14px
+
+// +media-breakpoint-down(md)
+// 	h1
+// 		font-size: 25px
+// 		margin-bottom: 10px
+

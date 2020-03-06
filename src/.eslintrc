@@ -1,0 +1,48 @@
+{
+    "parser": "babel-eslint",
+    "rules": {
+        "max-len": [
+            "warn",
+            {
+                "code": 120
+            }
+        ],
+        "camelcase": "warn",
+        "indent": ["warn", 2],
+        "no-undef": "warn",
+        "no-trailing-spaces": "warn",
+        "curly": "warn",
+        "no-console": "warn",
+        "eqeqeq": "warn",
+        "no-use-before-define": "warn",
+        "no-empty": "warn",
+        "block-scoped-var": "warn"
+    },
+    "extends": "eslint:recommended",
+    "env": {
+        "es6": true,
+        "browser": true,
+        "node": true,
+        "jquery": true
+    }
+}
+
+// {
+// 	// "camelcase" : true,
+// 	// "indent": 2,
+// 	// "undef": true,
+// 	"quotmark": false,
+// 	// "maxlen": 120,
+// 	// "trailing": true,
+// 	// "curly": true,
+// 	"strict": true,
+// 	// "browser": true,
+// 	// "devel": true,
+// 	// "jquery": true,
+// 	// "esversion": 6,
+// 	// "eqeqeq": true,
+// 	// "latedef": true,
+// 	// "noempty": true,
+//     // "funcscope": true,
+//     // "node": true
+// }
