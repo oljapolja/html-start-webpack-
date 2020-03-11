@@ -1,15 +1,16 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    title Document for webpack
-    link(rel='icon' href='./img/icon/favicon.ico')
-  body
-    .container
-      .row
-        .col-md-12
-          h1 Webpack Coucse
+extends ./layout/main
+//- include ./blocks/
+
+block vars
+  -
+    const description = 'Создание адаптивного сайта'
+    const title = 'Document for webpack'
+
+block content
+  .container
+    .row
+      .col-md-12
+        h1 Webpack Coucse
           hr
           .test-block
           hr

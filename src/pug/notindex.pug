@@ -1,8 +1,10 @@
-doctype html
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title Document
-  body
-    h1 Yei!
+extends ./layout/main
+//- include ./blocks/
+
+block vars
+  -
+    const description = 'Создание адаптивного сайта'
+    const title = 'notIndex Document for webpack'
+
+block content
+  h1 Yei!
